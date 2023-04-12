@@ -1,0 +1,134 @@
+  .header {
+  display : fixed;
+  }
+  
+  .headerBtns   {
+  width: 100%;
+  height : 20%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 60px;
+  background-color: rgb(254, 251, 238);
+
+} 
+
+
+.headerBtns > div {
+display:flex;
+align-items : center;
+justify-content : center;
+}
+
+.headerBtns > div > button {
+border :none; 
+background-color: rgb(254, 251, 238);
+font-size: 15px;
+color :rgb(150, 116, 36); 
+}
+
+.headerBtns > div > button:hover{
+border-bottom : 2px solid rgb(150, 116, 36);
+padding :0.5em;
+font-weight : bolder;
+cursor : pointer;
+
+}
+  
+.bodyContainer {
+	overflow : auto;
+}
+.bodyContainer .showAdPic > img {
+	width : 100%;
+	height : 30%;
+	
+}
+.bodyContainer .simpleReserve {
+	margin :0 4em;
+	padding : 2em 0;
+	display : grid;
+	grid-template-columns: 90% 10%;
+	border-bottom : 5px solid rgb(254, 251, 238);
+}
+.bodyContainer .simpleReserve .selectorDiv {
+	display : grid;
+    grid-template-columns: 25% 22.5%  22.5% 10% 10% 10%;
+}
+
+
+.bodyContainer .simpleReserve .selectorDiv >div {
+display : flex;
+flex-direction: column;
+align-items : center;
+justify-content : center;
+}
+.bodyContainer .simpleReserve .selectorDiv >div> div {
+width : 70%;
+border : none;
+border-bottom :2px solid rgb(150, 116, 36);
+}
+.bodyContainer .simpleReserve .selectorDiv >div> label {
+	color :rgb(150, 116, 36);
+font-weight : bolder;
+padding : 0.5em 0;
+}
+.bodyContainer .simpleReserve .selectorDiv >div>div>input,
+.bodyContainer .simpleReserve .selectorDiv >div>div>select  {
+width : 100%;
+border : none;
+
+}
+
+
+
+.bodyContainer .simpleReserve >div:last-of-type {
+	display : flex;
+	align-items : center;
+	justify-content : center;
+}
+.bodyContainer .simpleReserve >div:last-of-type>button {
+ border : none; 
+ padding : 1em 2em;
+ background-color : rgb(254, 251, 238);
+ border-radius : 5px;
+ color : rgb(150, 116, 36);
+ font-weight : bolder;
+}
+
+.bodyContainer .simpleReserve >div:last-of-type>button:hover {
+ background-color :  rgb(150, 116, 36);
+ color : rgb(254, 251, 238);
+}
+
+
+.footerContainer {
+
+ position: fixed;
+  left: 0;
+  bottom:0;
+  width: 100%;
+}
+.footer {
+
+	display : grid;
+	grid-template-columns : 30% 70%;
+	background-color : rgb(254, 251, 238);
+	color : rgb(150, 116, 36);
+	padding : 1rem;
+}
+.footer >div:first-of-type{
+	display : flex;
+    align-items : center;
+	justify-content : center;
+}
+.footer >div:last-of-type {
+ padding-top : 20px;
+}
+
+.footer >div:last-of-type>div {
+	font : serif;
+	font-size :12px;
+}
+
+
+
+

@@ -1,0 +1,99 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
+
+}
+
+.loginContainer > div {
+  width : 600px;
+}
+
+.loginContainer > div:first-of-type {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.loginContainer > div:first-of-type > label {
+	padding :10px;
+	background-color: rgb(254, 251, 238);
+	text-align : center;
+	text-weight : bolder;
+}
+.loginContainer > div:first-of-type > label > input {
+	display : none;
+}
+.loginContainer > div:first-of-type > label:first-of-type {
+  background-color: rgb(150, 116, 36);
+}
+
+.loginContainer > div {
+display : flex; 
+flex-direction : column;
+align-items: center;
+justify-content: center;
+color: rgb(150, 116, 36);
+background-color : rgb(254, 251, 238);
+border-radius : 3px;
+padding-bottom : 2rem;
+}
+
+.loginContainer > div:last-of-type>form >div {
+	
+width : inherit;
+display :grid;
+grid-template-columns : 25% 50% 25%;
+margin-bottom : 10px;
+padding : 0 1rem;
+}
+
+.loginContainer > div:last-of-type>form >div:last-of-type>div:last-of-type {
+	    display: grid;
+    grid-gap: 0.1em;
+grid-template-columns :30% 35% 35%;
+
+}
+
+.loginContainer > div:last-of-type>form >div:last-of-type>div:last-of-type>div>input {
+	width : 5rem;
+
+}
+
+
+
+
+
+.loginContainer > div:last-of-type input {
+border : none;
+border-bottom : 1px solid rgb(150, 116, 36);
+}
+.loginContainer > div:last-of-type >button {
+width : 200px;
+padding : 10px;
+background-color :rgb(150, 116, 36);
+border : none;
+border-radius : 3px;
+color: rgb(254, 251, 238);
+}
+.loginContainer > div:last-of-type >button:hover {
+cursor : pointer;
+}
+
+.loginContainer > div:last-of-type >div:last-of-type>div:last-of-type  {
+text-align : center;
+display : grid;
+grid-template-columns : 33% 34% 33% ; 
+}
+.loginContainer > div:last-of-type >div:last-of-type>div:last-of-type>div {
+display : flex;
+
+}
+.loginContainer > div:last-of-type >div:last-of-type>div:last-of-type>div >input {
+width : 90%;
+}
+
+
+
+
+

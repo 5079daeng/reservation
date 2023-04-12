@@ -1,0 +1,72 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
+
+}
+
+.loginContainer > div {
+  width : 600px;
+}
+
+.loginContainer > div:first-of-type {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.loginContainer > div:first-of-type > label {
+	padding :10px;
+	background-color: rgb(254, 251, 238);
+	text-align : center;
+	text-weight : bolder;
+}
+.loginContainer > div:first-of-type > label > input {
+	display : none;
+}
+.loginContainer > div:first-of-type > label:first-of-type {
+  background-color: rgb(150, 116, 36);
+}
+
+.loginContainer > div:last-of-type {
+display : flex; 
+flex-direction : column;
+align-items: center;
+justify-content: center;
+color: rgb(150, 116, 36);
+padding : 20px 0;
+background-color : rgb(254, 251, 238);
+border-radius : 3px;
+}
+
+.loginContainer > div:last-of-type >div {
+width : 600px;
+display :grid;
+grid-template-columns : 25% 50% 25%;
+margin-bottom : 10px;
+}
+
+.loginContainer > div:last-of-type >div>div  {
+text-align : center;
+}
+
+.loginContainer > div:last-of-type input {
+border : none;
+border-bottom : 1px solid rgb(150, 116, 36);
+}
+.loginContainer > div:last-of-type >button {
+width : 200px;
+padding : 10px;
+background-color :rgb(150, 116, 36);
+border : none;
+border-radius : 3px;
+color: rgb(254, 251, 238);
+}
+.loginContainer > div:last-of-type >button:hover {
+cursor : pointer;
+}
+
+
+
+
+

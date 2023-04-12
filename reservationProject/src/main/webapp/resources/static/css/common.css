@@ -1,0 +1,281 @@
+
+.commonBtn {
+	
+
+    background-color: rgb(150, 116, 36);
+    border: none;
+    border-radius: 3px;
+    color: rgb(254, 251, 238);
+	
+	
+}
+
+.btnDiv{
+	text-align : right;
+}
+
+.mainBtn {
+margin : 1rem;
+width : 200px;
+padding : 10px;
+background-color :rgb(150, 116, 36);
+border : none;
+border-radius : 3px;
+color: rgb(254, 251, 238);
+}
+
+.mainBtn:hover {
+	cursor : pointer;
+	font-wieght : 700;
+
+}
+
+
+.tableTypeA, .tableTypeB {
+    border: none;
+    border-top: #cdcbbe solid 1px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin : 1rem;
+}
+
+.tableTypeA th , .tableTypeB th {
+    color: #666;
+    background: #faf9f4;
+}
+.tableTypeA tr, .tableTypeB tr {
+	background:white;
+}
+.tableTypeA th, .tableTypeA td, , .tableTypeB th, , .tableTypeB td {
+    border: none;
+    padding: 6px 13px;
+    text-align: left;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
+    color: #333333;
+    text-align : center;
+    
+    
+}
+
+.tableTypeA tr:hover {
+  cursor : pointer;
+  background-color: #b2aeae3b;
+    
+    
+}
+
+.fileButton {
+    top: 0px;
+    cursor: pointer;
+    width: 66px;
+    height: 27px;
+    line-height: 100px;
+    overflow: hidden;
+}
+
+textarea {
+	
+	width:-webkit-fill-available;
+	height : 300px;
+	border: 1px solid #ccc;
+    padding: 5px 4px 4px;
+    margin: 1px 0;
+    color: #666;
+    resize: none;
+    vertical-align: middle;
+
+	
+}
+
+
+.modal-header  {
+padding : 1rem;
+background-color :rgb(150, 116, 36);
+color : white;
+font-height : bold;
+}
+
+
+.modal-body {
+    height: 400px;
+    overflow: auto;
+}
+
+
+
+<!--마이페이지 관리자 페이지 관련 -->
+
+.mainContainer {
+	padding: 5rem 10rem;
+	display : grid; 
+	grid-template-columns : 20% 70%;
+}
+
+
+.mainContainer > div:first-of-type {
+    background-color: hwb(42deg 14% 41% / 78%);
+    color : rgb(254, 251, 238);
+    padding: 30px;
+}
+
+.mainContainer > div:first-of-type>div:first-of-type {
+	font-size : 30px;
+	font-weight : 600;
+	border-bottom : 2px solid white;
+	margin-bottom: 1rem;
+}
+
+.mainContainer > div:first-of-type>div:not(:first-of-type) {
+	font-size : 20px;
+	font-weight : 500;
+	margin-bottom : 10px
+	
+}
+
+.mainContainer > div:first-of-type>div:not(:first-of-type):hover {
+   font-weight : 800;
+   cursor:pointer;
+	
+}
+
+.subContainer  {
+	padding : 2rem;
+	background-color :  rgb(254, 251, 238);
+}
+.subContainer > div:not(:last-of-type)  {
+display : grid;
+grid-template-columns : 20% 80%;
+margin-top : 0.5rem;
+	
+}
+
+.subContainer > div > label,
+.subContainer > h3 {
+ color : rgb(150, 116, 36);
+ font-weight : 600;
+}
+
+.subContainer > div > input {
+ border:none;
+ border-bottom : 1px solid rgb(150, 116, 36);
+}
+
+.subContainer > div:last-of-type  {
+margin-top : 1rem;
+display : flex;
+align-items : center;
+justify-content : center;
+	
+}
+
+
+
+.mypageContainer {
+	padding : 2rem;
+	background-color : rgb(254, 251, 238);
+	width:100%;
+	
+}
+
+
+/* 고객문의 지도 공통 css */
+.container {
+	padding: 5rem 10rem;
+    display: grid;
+    grid-template-columns: 20%80%;
+    grid-gap : 40px;
+}
+
+.container > div:first-of-type {
+    background-color: hwb(42deg 14% 41% / 78%);
+    color : rgb(254, 251, 238);
+    padding: 30px;
+}
+
+.container > div:first-of-type>div:first-of-type {
+	font-size : 30px;
+	font-weight : 600;
+	border-bottom : 2px solid white;
+margin-bottom : 1rem;
+}
+
+.container > div:first-of-type>div:not(:first-of-type) {
+	font-size : 20px;
+	font-weight : 500;
+	margin-bottom : 10px
+	
+}
+
+.container > div:first-of-type>div:not(:first-of-type):hover {
+	
+	font-weight : 700;
+	cursor:pointer;
+	
+	
+}
+
+
+
+
+
+cube {
+	    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom : 5px;
+    background : white;
+    
+}
+
+cube:hover {
+	  cursor : pointer; 
+    background : #fbdcaac2;
+    
+}
+
+
+
+.modal-wrap {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal {
+	background-color: white;
+    width: 60%;
+    border-radius: 0.3em;
+}
+
+
+
+/*페이지네이션 */ 
+
+.pageContainer{
+	display : flex;
+	justify-content: center;
+}
+
+.pageContainer > div{
+	border: 1px solid #eceae1;
+	border-right : none;
+    padding: 0.25rem 0.5rem;
+}
+.pageContainer > div:hover{
+	background-color:#faf9f4;
+	cursor : pointer;
+}
+
+
+.pageContainer > div:last-of-type {
+	border: 1px solid #eceae1;
+}
