@@ -140,4 +140,6 @@
 
 
 <h1>* DB 설계</h1> 
+
+
 ![image](https://user-images.githubusercontent.com/94948667/231437975-67d037a2-7d22-49b5-9181-0ab886bdb4fc.png)
