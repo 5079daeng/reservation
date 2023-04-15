@@ -4,6 +4,18 @@
 
 개발 인원 : 1명
 
+개발 언어 : Java 1.8
+
+
+개발 환경 : Spring Tool Suite 3
+
+
+데이터베이스 : MySQL
+
+
+형상관리 툴 : GitHub
+
+
 - 주요 기능 : 
 
 
@@ -78,7 +90,6 @@
   Daum 주소 Api 사용하여 입력
   
   
-
 2 문의 글 / 댓글
 
 
@@ -95,16 +106,7 @@
 3. 객실 예약 
 
 
-개발 언어 : Java 1.8
 
-
-개발 환경 : Spring Tool Suite 3
-
-
-데이터베이스 : MySQL
-
-
-형상관리 툴 : GitHub
 
 
 
