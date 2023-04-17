@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -9,12 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <head>
+
+<title>Home</title>
+
 <link href="<c:url value="/resources/static/css/roomInfo.css"/>"
 	rel='stylesheet' />
-<title>Home</title>
-<link href="<c:url value="/resources/static/css/common.css"/>"
-	rel='stylesheet' />
-
 <style>
 </style>
 </head>
@@ -33,26 +33,24 @@
 						<img src="/getFile/${Room.img[0].fileNo}" width="600" height="374">
 					</div>
 					<div>
-						<div>	
-						<strong>${Room.roomType} - ${Room.roomNo}호</strong>
-						<strong>${checkInDate} ~ ${checkOutDate} </strong>
-						<div class="dateLength"></div>
-									<div>
-										<ul>
-											<li>체크인 : 오후 3시 이후</li>
-											<li>체크아웃 : 정오</li>
-											<li>40” LED TV (36채널)</li>
-											<li>책상</li>
-											<li>냉장고</li>
-											<li>무료커피/티백</li>
-											<li>무료 생수 2병 (1박 기준)</li>
-											<li>무료 유무선 인터넷</li>
-											<li>유니버셜 어댑터(220V 전용)</li>
-											<li>개인금고</li>
-											<li>다회용 어메니티</li>
-											<li>2개의 목욕가운</li>
-										</ul>
-									</div>
+						<div>
+							<strong>${Room.roomType} - ${Room.roomNo}호</strong>
+							<div>
+								<ul>
+									<li>체크인 : 오후 3시 이후</li>
+									<li>체크아웃 : 정오</li>
+									<li>40” LED TV (36채널)</li>
+									<li>책상</li>
+									<li>냉장고</li>
+									<li>무료커피/티백</li>
+									<li>무료 생수 2병 (1박 기준)</li>
+									<li>무료 유무선 인터넷</li>
+									<li>유니버셜 어댑터(220V 전용)</li>
+									<li>개인금고</li>
+									<li>다회용 어메니티</li>
+									<li>2개의 목욕가운</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 
@@ -66,13 +64,15 @@
 
 						<div>
 							<strong>조식 선택</strong>
-							<div style="padding: 1rem" >
-								성인 조식 / 20,000&nbsp;원 &nbsp;&nbsp;<input type="number" min="0" onchange="calcPrice()"
-									value="0" max="${adultMax}" class="adult"/> 명
+							<div style="padding: 1rem">
+								성인 조식 / 20,000&nbsp;원 &nbsp;&nbsp;<input type="number" min="0"
+									onchange="calcPrice()" value="0" max="${adultMax}"
+									class="adult" /> 명
 							</div>
-							<div style="padding: 1rem" >
-								어린이 조식 / 10,000&nbsp;원 &nbsp;&nbsp;<input type="number" min="0" onchange="calcPrice()"
-									value="0" max="${childMax}" class="child"/> 명
+							<div style="padding: 1rem">
+								어린이 조식 / 10,000&nbsp;원 &nbsp;&nbsp;<input type="number" min="0"
+									onchange="calcPrice()" value="0" max="${childMax}"
+									class="child" /> 명
 							</div>
 						</div>
 						<div style="padding: 1rem">
@@ -92,7 +92,7 @@
 			</div>
 			<!-- 옵션사항 End -->
 			<!-- 유의사항 Start -->
-			<div class="options">
+			<div class="options" style="margin-bottom:300px;">
 
 				<div class="option-title">유의사항</div>
 				<div>
@@ -118,13 +118,10 @@
 			<!-- 유의사항 End -->
 
 
-			<div class="options" style="text-align: right; padding: 1rem 3rem">
-				<div>
-					<strong>요금합계</strong> 
-					<div>객실 요금 : </div>
-					
-					
-					
+			<div class="calcFooter">
+				<div> 
+				<div>${checkInDate} ~ ${checkOutDate} <div class="dateLength"></div> (1박 당<fmt:formatNumber value="${Room.price}" />)</div> 
+					<strong>요금합계</strong>
 					<strong class="totalAmount">${Room.price}&nbsp;원</strong>
 				</div>
 				<div>
@@ -139,17 +136,39 @@
 <script>
 
 $(document).ready(function() {
+	
+	let from ="${checkInDate}"; 
+	let to = "${checkOutDate}";   
+	from = new Date(from) ;
+	to = new Date(to); 
+	
+	let length = to.getTime() - from.getTime(); 
+    length = Math.abs(Math.ceil(length / (1000 * 60 * 60 * 24)));
+    
+	let defaultPrice = (${Room.price} * length);
+    $(".totalAmount").html(defaultPrice.toLocaleString()+"원");
 window.setTimeout(calcDate() , 3000);
 });
 	
 
 function calcPrice() {
-	let defaultPrice = ${Room.price};
+	
+	let from ="${checkInDate}"; 
+	let to = "${checkOutDate}";   
+	from = new Date(from) ;
+	to = new Date(to); 
+	
+	let length = to.getTime() - from.getTime(); 
+    length = Math.abs(Math.ceil(length / (1000 * 60 * 60 * 24)));
+	
+	
+	let defaultPrice = (${Room.price} * length);
 	let adultAmount = $(".adult").val() * 20000;
 	let childAmount = $(".child").val() * 10000;
 	let total = defaultPrice + adultAmount + childAmount;
 
 	$(".totalAmount").html(total.toLocaleString() +"원"); 
+	
 	
 }
 

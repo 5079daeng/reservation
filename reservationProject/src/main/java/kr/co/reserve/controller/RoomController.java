@@ -82,6 +82,7 @@ public class RoomController {
 		Attached file = attahchedservice.getFile(fileNo);
 		String fileName = file.getCodeTitle();
 		// 업로드된 파일의 경로
+	
 		String path = "C:\\Users\\bdahm\\Desktop\\stswork\\files\\";
 
 		Resource resource = new FileSystemResource(path + fileName);
@@ -107,6 +108,8 @@ public class RoomController {
 	public String getRoomData(@PathVariable("roomNo") int roomNo) throws JsonProcessingException {
 		String result = null;
 		Room room = service.getRoomInfo(roomNo);
+		List<Attached> fileList = attahchedservice.getFiles(roomNo);
+	    room.setImg(fileList);
 		ObjectMapper mapper = new ObjectMapper();
 		String data =  mapper.writeValueAsString(room);
 		

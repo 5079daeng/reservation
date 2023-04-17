@@ -84,11 +84,16 @@
 
 		<div class="modal">
 		 <form id="insertForm" action="/room/modify" method="post" enctype="multipart/form-data">
+		 <div class="modalClose" onclick="closwModal()">X</div>
 			<div class="subContainer">
 				<h3>- 객실 정보</h3>
+				
+			<con class="roomImg" style="display:flex; justify-content:center;">
+						
+					</con>
 				<div>
 					<label>호수</label><input class="m_roomNo" type="text" name="roomNo" readonly style="color:gray"></input>
-				</div>
+				</div> 
 
 				<div>
 					<label>룸 타입</label><input class="m_roomType" name="roomType" readonly style="color:gray"/>
@@ -100,13 +105,11 @@
 					<label>가격</label><input class="m_price" type="text" name="price" onkeyup="setNum(this);"></input>
 				</div>
 				<div>
-					<label>객실 이미지</label> <input type="file" multiple="multiple"
+					<label>객실 이미지</label> <input type="file" multiple="multiple" onchange="readURL(this);"
 						name="files"></input>
 				</div>
 				<div>
 					<input class="mainBtn" type="submit" value="수정"></input>
-					
-					<div class="mainBtn" onclick="closwModal()">닫기</div>
 				</div>
 			</div>
 			</form>
@@ -118,7 +121,7 @@
 function openModal(obj){
 	$(".modal-wrap").show();
 	let roomNo = obj.dataset.no;
-	let data, roomType, max,price;
+	let data, roomType, max, price , file;
 	 
 	
 	$.ajax({
@@ -133,12 +136,16 @@ function openModal(obj){
 		roomType = data.roomType;
 		max = data.max;
 		price = data.price;
+		file = data.img; 
+		file = file[0].fileNo;
+		
 		
 		$(".m_roomNo").val(roomNo);
 		$(".m_roomType").val(roomType);
 		$(".m_max").val(max);
 		$(".m_price").val(price);
 		
+		$(".roomImg")[0].innerHTML = "<img id='preview' src='/getFile/"+file+ "' width='300' height='187'>"; 
 
 			}
 		}
@@ -162,6 +169,19 @@ function setNum(obj) {
 } 
 
 
+
+
+function readURL(input) {
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(e) {
+	      document.getElementById('preview').src = e.target.result;
+	    };
+	    reader.readAsDataURL(input.files[0]);
+	  } else {
+	    document.getElementById('preview').src = "";
+	  }
+	}
 
 
 </script>

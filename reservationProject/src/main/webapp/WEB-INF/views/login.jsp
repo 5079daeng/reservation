@@ -210,15 +210,11 @@
 				 dataType : "json",
 				 contentType : "text/plain",
 				 success : (result) => {
-					
-					 console.log(result);
 					 if(result.result === "ok") {
 						 alert("사용 가능한 아이디입니다 ");
 						 $(obj).next().val("true"); 
 					 } else { 
 						 alert("이미 등록된 아이디입니다");
-						 
-						 
 					 }
 						 
 				 }
@@ -263,7 +259,7 @@
 		 } 
 		 
 		 function doJoin() {
-			 let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+			 let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
 			
 		
 			 let id, pw, address, email, cellphone, name = null; 

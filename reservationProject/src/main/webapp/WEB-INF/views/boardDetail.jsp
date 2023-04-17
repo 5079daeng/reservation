@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,8 +64,12 @@
 				<tbody>
 					<c:forEach var="reply" items="${replyList}">
 						<tr>
-							<th>담당자(${reply.userNo})${reply.created} <button onclick="location.href='/reply/modify/${reply.replyNo}'">수정</button>
-							<button onclick="deleteReply(this)" value="${reply.replyNo}">삭제</button></th>
+							<th>담당자(${reply.userNo}) <fmt:formatDate value="${reply.created}" pattern="yyyy-MM-dd" /> 
+							<c:if test="${User.id eq 'master'}">
+							<button onclick="location.href='/reply/modify/${reply.replyNo}'">수정</button>
+							<button onclick="deleteReply(this)" value="${reply.replyNo}">삭제</button>
+							</c:if>
+							</th>
 							<td>${reply.content}</td>
 						</tr>
 					</c:forEach>

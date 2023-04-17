@@ -48,7 +48,7 @@
 
 						<c:forEach var="rsv" items="${rsvList}">
 							<tr data-no="${rsv.reserveNo}" data-room="${rsv.roomNo}"
-								class="rsv_${rsv.reserveNo}" onclick="showModal(this);">
+								class="rsv_${rsv.reserveNo}" onclick="showModal(this);" style="text-align:center;">
 								<td>${rsv.reserveNo}</td>
 								<td>${rsv.roomNo}</td>
 								<td>${fn:replace(rsv.checkInDate,'00:00:00','15:00:00')}</td>

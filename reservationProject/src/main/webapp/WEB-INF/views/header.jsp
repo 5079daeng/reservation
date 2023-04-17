@@ -11,13 +11,15 @@ prefix="c" %>
     rel="stylesheet"
     href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
   />
+  <link href="<c:url value="/resources/static/css/common.css"/>"
+	rel='stylesheet' />
+	<link href="<c:url value="/resources/static/css/home.css"/>"
+	rel='stylesheet' />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<script src="/resources/static/js/common.js"></script>
   <head>
-    <link href="
-    <c:url value="/resources/static/css/home.css" />
-    " rel='stylesheet' />
+    
     <title>Home</title>
   </head>
 

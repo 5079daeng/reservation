@@ -80,6 +80,7 @@ public class MasterController {
 		 } 
 		
 		// 서버에서 저장 할 경로
+			
 		String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
 		System.out.println(files);
 		List<MultipartFile> list = files.getFiles("files");
@@ -136,12 +137,10 @@ public class MasterController {
 		List<MultipartFile> list = files.getFiles("files");
 		
 		if(list.size() > 0) {
-			
 			// 기존에 등록된 파일 제거 
-			
 			String existedFileName = attachedService.getFileName(roomNo);
-			System.out.println("check ::" + existedFileName);
 			File existedFile = new File(uploadFolder+"\\"+existedFileName); 
+			System.out.println(existedFile + " 파일 확인함");
 			existedFile.delete(); 
 			
 			for (int i = 0; i < list.size(); i++) {

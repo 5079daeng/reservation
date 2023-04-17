@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -13,6 +14,7 @@
 	rel='stylesheet' />
 <link href="<c:url value="/resources/static/css/common.css"/>"
 	rel='stylesheet' />
+	<script src="/resources/static/js/common.js"></script>
 <title>Home</title>
 
 
@@ -118,7 +120,7 @@
 									</c:choose></td>
 								<td style="text-align: left">${board.title}</td>
 								<td>${board.userId}</td>
-								<td>${board.created}</td>
+								<td><fmt:formatDate value="${board.created}" pattern="yyyy-MM-dd" /></td>
 								<c:choose>
 									<c:when test="${board.reply eq 0}">
 										<td>N</td>
@@ -149,6 +151,21 @@
 
 </body>
 <script>
+
+
+function getYmd(date) {
+    let d = new Date(date);
+    return (
+        (d.getFullYear() % 100) +
+        "-" +
+        (d.getMonth() + 1 > 9
+            ? (d.getMonth() + 1).toString()
+            : "0" + (d.getMonth() + 1)) +
+        "-" +
+        (d.getDate() > 9 ? d.getDate().toString() : "0" + d.getDate().toString())
+    );
+}
+
 
 
 

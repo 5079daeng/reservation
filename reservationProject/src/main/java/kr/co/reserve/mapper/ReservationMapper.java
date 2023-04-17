@@ -15,7 +15,7 @@ import kr.co.reserve.domain.Room;
 public interface ReservationMapper {
 
 	@Insert("Insert into pinestay.Reservationdata (roomNo, checkInDate, checkOutDate, userCount, status, userNo, userId) values (#{Reservation.roomNo},#{Reservation.checkInDate},#{Reservation.checkOutDate},"
-			+ "#{Reservation.userCount},1,#{Reservation.userNo},#{Reservaion.userId})")
+			+ "#{Reservation.userCount},1,#{Reservation.userNo},#{Reservation.userId})")
 	public int insertReservationDate(@Param("Reservation") Reservation Reservation);
 	
 	@Select("Select Max(reserveNo) from pinestay.Reservationdata")
