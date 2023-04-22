@@ -4,13 +4,15 @@
 
 개발 인원 : 1명
 
+
+
 개발 언어 : Java 1.8
 
 
-개발 환경 : Spring Tool Suite 3
+개발 환경 : Spring Tool Suite 3 (3.9.15)
 
 
-데이터베이스 : MySQL
+데이터베이스 : MySQL (8.0.20) 
 
 
 형상관리 툴 : GitHub
