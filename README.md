@@ -189,3 +189,11 @@ tomcat9라는 사용자가 없다는 오류로
 
 <h3>2. 없으면 다음과 같이 생성 : sudo useradd -r -m -U -d /usr/share/tomcat9 -s/bin/false tomcat9  </h3>
 
+-r : 시스템 계정을 생성
+-m : 사용자의 홈 디렉토리를 생성
+-U : 사용자와 동일한 이름의 그룹을 생성하고 사용자를 그 그룹에 추가
+-d /usr/share/tomcat9 : 사용자의 홈 디렉토리를 /usr/share/tomcat9로 설정
+-s/bin/false : 사용자의 로그인 셸을 /bin/false로 설정. 이것은 사용자가 로그인할 수 없도록 함
+
+
+
