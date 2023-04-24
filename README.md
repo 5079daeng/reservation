@@ -183,16 +183,9 @@ BCryptPasswordEncoder를 사용하여 비밀번호를 암호화 함
 
 * chown invalid user tomcat9:tomcat9 에러 
 
-- tomcat9라는 사용자가 없다는 오류로
+tomcat9라는 사용자가 없다는 오류로
 
+tomcat9 라는 계정이 있는지 조회 : <h3> cat /etc/passwd | grep tomcat9 </h3> 
 
-cat /etc/passwd | grep tomcat9 
-
-
-
-위와 같은 명령어 tomcat9 사용자가 있는지 조회해보고 없으면 아래의 명령어로 생성
-
-
-
-sudo useradd -r -m -U -d /usr/share/tomcat9 -s/bin/false tomcat9 
+없으면 다음과 같이 생성 : <h3> sudo useradd -r -m -U -d /usr/share/tomcat9 -s/bin/false tomcat9  </h3>
 
