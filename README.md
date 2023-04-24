@@ -183,8 +183,6 @@ BCryptPasswordEncoder를 사용하여 비밀번호를 암호화 함
 
 <h2>* webapps에 대한 권한 설정 중 에러 : chown invalid user tomcat9:tomcat9 </h2>
 
-tomcat9라는 사용자가 없다는 오류로
-
 <h3>1. tomcat9 라는 계정이 있는지 조회 :  cat /etc/passwd | grep tomcat9</h3>
 
 <h3>2. 없으면 다음과 같이 생성 : sudo useradd -r -m -U -d /usr/share/tomcat9 -s/bin/false tomcat9  </h3>
