@@ -76,8 +76,9 @@ public class MasterController {
 		}
 
 		// 서버에서 저장 할 경로
-
-		String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
+		
+		 String uploadFolder = "/var/lib/tomcat9/webapps/files/";
+		//String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
 		System.out.println(files);
 		List<MultipartFile> list = files.getFiles("files");
 		if (list.size() != 0) {
@@ -93,7 +94,7 @@ public class MasterController {
 					String[] uuids = uuid.toString().split("-");
 					String uniqueName = uuids[0];
 
-					File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension);
+					File saveFile = new File(uploadFolder + uniqueName + fileExtension);
 					file.setRealTitle(fileRealName);
 					file.setCateNo(roomNo);
 					file.setCodeTitle(uniqueName + fileExtension);
@@ -124,14 +125,14 @@ public class MasterController {
 		Attached file = new Attached();
 
 		roomService.update(room);
-
-		String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
+		 String uploadFolder = "/var/lib/tomcat9/webapps/files/";
+		//String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
 		List<MultipartFile> list = files.getFiles("files");
 		
 		if (list.size() > 0 && list.get(0).getSize() > 0) {
 			// 기존에 등록된 파일 제거
 			String existedFileName = attachedService.getFileName(roomNo);
-			File existedFile = new File(uploadFolder + "\\" + existedFileName);
+			File existedFile = new File(uploadFolder + existedFileName);
 			existedFile.delete();
 
 			for (int i = 0; i < list.size(); i++) {

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -28,8 +29,8 @@
 		style="padding: 5rem 10rem; display: grid; grid-template-columns: 20% 70%;">
 		<div>
 			<div>마이페이지</div>
-			<div onclick="location.href='/mypage/memberInfo'">회원가입 정보</div>
-			<div onclick="location.href='/mypage/reservationInfo'">예약조회</div>
+			<div onclick="location.href='${path}/mypage/memberInfo'">회원가입 정보</div>
+			<div onclick="location.href='${path}/mypage/reservationInfo'">예약조회</div>
 		</div>
 		<div class="mypageContainer">
 			<h3>회원가입 정보</h3>
@@ -90,12 +91,12 @@
 							<th>휴대전화번호</th>
 							<td><input id="cellphonFirst" name="cellphonFirst"
 								value="${fn:split(User.cellphone,'-')[0]}" type="text"
-								onkeyup="checkNum(this)" style="width: 30%;" />-<input
+								 style="width: 30%;" />-<input
 								id="cellphoneMiddle" name="cellphoneMiddle" type="text"
-								onkeyup="checkNum(this)" style="width: 30%;"
+								 style="width: 30%;"
 								value="${fn:split(User.cellphone,'-')[1]}" />- <input
 								id="cellphonLast" name="cellphonLast" type="text"
-								onkeyup="checkNum(this)" style="width: 30%;"
+								 style="width: 30%;"
 								value="${fn:split(User.cellphone,'-')[2]}" /></td>
 						</tr>
 					</tbody>
@@ -103,7 +104,7 @@
 			</div>
 			<div class="btnDiv">
 				<button class="mainBtn" onclick="doModify()">수정</button>
-				<button class="mainBtn" onclick="location.href='/logout'">로그아웃</button>
+				<button class="mainBtn" onclick="location.href='${path}/logout'">로그아웃</button>
 			</div>
 		</div>
 	</div>
@@ -173,7 +174,7 @@
 			 User = JSON.stringify(User); 
 			 
 			 $.ajax({
-				 url : "/user/modify", 
+				 url : "${path}/user/modify", 
 				 method : "post",
 				 data : User, 
 				 dataType : "json",
@@ -181,7 +182,7 @@
 				 success : (result) => {
 					 if(result.result == "ok") {
 						 alert("정보 수정 완료");
-						 location.href = "/";
+						 location.href = "${path}/";
 					 }else {
 						 alert("회원 정보 수정 실패");
 					 }

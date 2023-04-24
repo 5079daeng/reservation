@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -78,7 +79,7 @@
 				<div
 					style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
 					<button class="mainBtn" onclick="postInsert()">등록</button>
-					<button class="mainBtn" onclick="location.href='/board'">취소</button>
+					<button class="mainBtn" onclick="location.href='${path}/board?page=1'">취소</button>
 				</div>
 			</div>
 
@@ -109,7 +110,7 @@
 							<th>답변</th>
 						</tr>
 						<c:forEach var="board" items="${boardList}">
-							<tr onclick="location.href='/board/detail/${board.boardNo}'">
+							<tr onclick="location.href='${path}/board/detail/${board.boardNo}'">
 								<td>${board.boardNo}</td>
 								<td><c:choose>
 										<c:when test="${board.category eq 'reserve'}">예약문의</c:when>
@@ -138,7 +139,7 @@
 
 				<div class="pageContainer">
 					<c:forEach var="i" begin="1" end="${total mod 5 eq 0 ? total div 5 : total div 5 + 1}">
-  <div onclick="location.href='/board?page=${i}'">${i}</div>
+  <div onclick="location.href='${path}/board?page=${i}'">${i}</div>
 </c:forEach>
 				</div>
 			</div>
@@ -193,7 +194,7 @@ function getYmd(date) {
 	  Board = JSON.stringify(Board);
 	  
 	  $.ajax({
-		  url : "/board/insert",
+		  url : "${path}/board/insert",
 		  method : "post", 
 		  data : Board,
 		  contentType : "application/json",
@@ -201,7 +202,7 @@ function getYmd(date) {
 			result = JSON.parse(result);
 			  if(result.result == "ok") {
 				  alert("등록되었습니다");
-				  location.href= "/board?page=1";
+				  location.href= "${path}/board?page=1";
 			  }
 		  }
 		   

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +55,7 @@ function modReply() {
 	Reply = JSON.stringify(Reply);
 	
 		$.ajax({
-			url: "/reply/doModify", 
+			url: "${path}/reply/doModify", 
 			data : Reply, 
 			method : "post",
 			contentType : "application/json",
@@ -62,7 +63,7 @@ function modReply() {
 		    	result = JSON.parse(result);
 		    	if(result.result == "ok") {
 		    		alert("수정되었습니다");
-		    		location.href = "/board/detail/" + boardNo;
+		    		location.href = "${path}/board/detail/" + boardNo;
 		    	} else {
 		    		alert("댓글 등록 오류"); 
 		    	}

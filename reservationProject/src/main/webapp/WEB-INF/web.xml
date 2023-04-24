@@ -37,7 +37,15 @@
 <servlet-mapping>
 		<servlet-name>dpServlet</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 	<!-- 파라미터 인코딩 필터 설정  -->

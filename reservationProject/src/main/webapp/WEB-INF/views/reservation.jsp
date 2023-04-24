@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -30,7 +31,7 @@
 				<div class="option-title">객실 정보</div>
 				<div style="display: grid; grid-template-columns: 50% 50%">
 					<div>
-						<img src="/getFile/${Room.img[0].fileNo}" width="600" height="374">
+						<img src="${path}/getFile/${Room.img[0].fileNo}" width="600" height="374">
 					</div>
 					<div>
 						<div>
@@ -226,7 +227,7 @@ function doReserve() {
 	
 	
 	$.ajax({
-		url : "/doReserve", 
+		url : "${path}/doReserve", 
 		method : "post", 
 		data : reservationData , 
 		dataType : "json", 
@@ -234,7 +235,7 @@ function doReserve() {
 		success : (result)=> {
 			if(result.result == "success") {
 			   alert("예약되었습니다.");
-			   location.href="/mypage/reservationInfo";
+			   location.href="${path}/mypage/reservationInfo";
 			}
 		}
 		

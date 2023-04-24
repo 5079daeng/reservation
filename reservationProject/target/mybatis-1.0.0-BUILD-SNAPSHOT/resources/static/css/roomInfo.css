@@ -1,0 +1,87 @@
+.roomsInfo {
+	display: grid;
+	grid-template-columns: 20% 50% 30%;
+	border: 1px solid rgb(248, 233, 198);
+	margin: 3rem;
+	padding: 1rem;
+	position: relative;
+	border-radius: 5px;
+}
+
+.btnDiv {
+	position: absolute;
+	right: 10;
+	bottom: 10;
+}
+
+.modal-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal {
+	background-color: white;
+	width: 60%;
+	border-radius: 0.3em;
+}
+
+.options {
+	margin: 1rem 3rem;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+}
+
+.options:last-of-type {
+	margin: 1rem 3rem 1rem 300px;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+}
+
+.options>div:nth-child(2) {
+	padding: 2rem;
+}
+
+.options>div:nth-child(2)>div>div {
+	padding: 1rem;
+}
+
+.option-title {
+	padding: 0 30px;
+	color: #333;
+	font-size: 16px;
+	line-height: 50px;
+	background: #f7f7f7;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.prodDetail figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.prodDetail figure:hover img {
+	opacity: 0.5;
+}
+
+.calcFooter {
+	text-align: right;
+	padding: 1rem 3rem;
+	position: fixed;
+	left: 0;
+	top: 600;
+	width: 95%;
+	background-color: rgb(254, 251, 238);
+}
+
+.calcFooter>div:first-of-type {
+	display : grid;
+	
+}

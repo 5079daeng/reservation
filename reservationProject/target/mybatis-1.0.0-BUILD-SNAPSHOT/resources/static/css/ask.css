@@ -1,0 +1,104 @@
+
+ul, ol, li, dl, dt, dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+	padding: 5rem 10rem;
+    display: grid;
+    grid-template-columns: 20%80%;
+    grid-gap : 40px;
+}
+
+.container > div:first-of-type {
+    background-color: hwb(42deg 14% 41% / 78%);
+    color : rgb(254, 251, 238);
+    padding: 30px;
+}
+
+.container > div:first-of-type>div:first-of-type {
+	font-size : 30px;
+	font-weight : 600;
+	border-bottom : 2px solid white;
+}
+
+.container > div:first-of-type>div:not(:first-of-type) {
+	font-size : 20px;
+	font-weight : 500;
+	margin-bottom : 10px
+	
+}
+
+.lnbMenu {
+    width: 216px;
+    border: #e9dab8 solid 1px;
+    padding: 23px;
+    margin: 0 0 30px 0;
+}
+
+.lnbMenu li {
+    margin: 0 0 26px 0;
+}
+
+.lnbMenu li a {
+    background: #9CC;
+    height: 21px;
+    display: block;
+    text-indent: -9999%;
+    overflow: hidden;
+}
+
+.tableTypeA, .tableTypeB {
+    border: none;
+    border-top: #cdcbbe solid 1px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.tableTypeA th {
+    color: #666;
+    background: #faf9f4;
+}
+
+.tableTypeA th, .tableTypeA td {
+    border: none;
+    padding: 6px 13px;
+    text-align: left;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
+    color: #333333;
+    text-align : center;
+}
+
+.fileButton {
+    top: 0px;
+    cursor: pointer;
+    width: 66px;
+    height: 27px;
+    line-height: 100px;
+    overflow: hidden;
+}
+
+textarea {
+	
+	width:-webkit-fill-available;
+	height : 300px;
+	border: 1px solid #ccc;
+    padding: 5px 4px 4px;
+    margin: 1px 0;
+    color: #666;
+    resize: none;
+    vertical-align: middle;
+
+	
+}
+
+
+
+
+
+

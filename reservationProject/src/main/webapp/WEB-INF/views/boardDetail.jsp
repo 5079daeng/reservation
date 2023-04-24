@@ -2,12 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="/resources/static/css/askDetail.css" rel="stylesheet" />
+<link href="<c:url value="/resources/static/css/askDetail.css"/>"
+	rel='stylesheet' />
 </head>
 <body>
 	<div class="header">
@@ -22,10 +24,10 @@
 
 		<div class="listDiv">
 		<div class="btnDiv" >
-				<button class="mainBtn" style="margin:0;" onclick="location.href='/board?page=1'">목록으로</button>
+				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board?page=1'">목록으로</button>
 				<c:if test="${User.userNo == board.userNo}">
-				<button class="mainBtn" style="margin:0;" onclick="location.href='/board/modify/${board.boardNo}'">수정</button>
-				<button class="mainBtn" style="margin:0;" onclick="location.href='/board/delete/${board.boardNo}'">삭제</button></c:if>
+				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board/modify/${board.boardNo}'">수정</button>
+				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board/delete/${board.boardNo}'">삭제</button></c:if>
 			</div>
 			<table class="tableTypeA">
 				<tbody>
@@ -66,7 +68,7 @@
 						<tr>
 							<th>담당자(${reply.userNo}) <fmt:formatDate value="${reply.created}" pattern="yyyy-MM-dd" /> 
 							<c:if test="${User.id eq 'master'}">
-							<button onclick="location.href='/reply/modify/${reply.replyNo}'">수정</button>
+							<button onclick="location.href='${path}/reply/modify/${reply.replyNo}'">수정</button>
 							<button onclick="deleteReply(this)" value="${reply.replyNo}">삭제</button>
 							</c:if>
 							</th>
@@ -111,13 +113,13 @@ function insertReply() {
 	} else {
 	
 		$.ajax({
-			url: "/reply/" + boardNo , 
+			url: "${path}/reply/" + boardNo , 
 			data : replyData, 
 			method : "post",
 		    dataType : "json",
 		    success : (result) => {
 		    	if(result.result == "ok") {
-		    		location.href = "/board/detail/" + boardNo;
+		    		location.href = "${path}/board/detail/" + boardNo;
 		    	} else {
 		    		alert("댓글 등록 오류"); 
 		    	}
@@ -139,14 +141,14 @@ function deleteReply(obj){
 	Reply = JSON.stringify(Reply);
 	
 	$.ajax({
-		url: "/reply/delete" , 
+		url: "${path}/reply/delete" , 
 		data : Reply, 
 		method : "post",
 	    contentType : "application/json",
 	    success : (result) => {
 	    	result = JSON.parse(result);
 	    	if(result.result == "ok") {
-	    		location.href = "/board/detail/" + boardNo;
+	    		location.href = "${path}/board/detail/" + boardNo;
 	    	} else {
 	    		alert("댓글 삭제 오류"); 
 	    	}

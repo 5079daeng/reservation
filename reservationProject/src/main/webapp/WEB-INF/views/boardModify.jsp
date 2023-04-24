@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -81,7 +82,7 @@
 				<div
 					style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
 					<button class="mainBtn" onclick="postModify()">수정</button>
-					<button class="mainBtn" onclick="location.href='/board/detail/${board.boardNo}'">취소</button>
+					<button class="mainBtn" onclick="location.href='${path}/board/detail/${board.boardNo}'">취소</button>
 				</div>
 			</div>
 		</div>
@@ -115,7 +116,7 @@
 	  Board = JSON.stringify(Board); 
 	  
 	  $.ajax({
-		  url : "/board/modify",
+		  url : "${path}/board/modify",
 		  method : "post", 
 		  data : Board,
 		  contentType : "application/json",
@@ -123,7 +124,7 @@
 			result = JSON.parse(result);
 			  if(result.result == "ok") {
 				  alert("수정되었습니다");
-				  location.href= "/board/detail/${board.boardNo}";
+				  location.href= "${path}/board/detail/${board.boardNo}";
 			  }
 		  }
 	  })

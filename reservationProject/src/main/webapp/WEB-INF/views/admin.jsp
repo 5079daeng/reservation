@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,10 +28,10 @@
 		style="padding: 5rem 10rem; display: grid; grid-template-columns: 20% 80%;">
 		<div>
 			<div>관리자 메뉴</div>
-			<div onclick="location.hrdf='/admin'">예약 관리</div>
-			<div onclick="location.href='/roomAdmin'">객실 관리</div>
-			<div onclick="location.href='/userAdmin'">회원 관리</div>
-			<div onclick="location.href='/logout'">로그아웃</div>
+			<div onclick="location.hrdf='${path}/admin'">예약 관리</div>
+			<div onclick="location.href='${path}/roomAdmin'">객실 관리</div>
+			<div onclick="location.href='${path}/userAdmin'">회원 관리</div>
+			<div onclick="location.href='${path}/logout'">로그아웃</div>
 		</div>
 		<div class="subContainer">
 			<h3>예약 관리</h3>
@@ -74,26 +75,6 @@
 
 <script>
 
-/*
-let data = {
-	    datasets: [{
-	        data: [${roomList.size()} ,${total - roomList.size()}],
-	        backgroundColor : [ '#9DCEFF','#f3350f' ]
-	    }],
-
-	    labels: [
-	        '예약',
-	        '미예약',
-	    ]
-	};
-
-
-new Chart("myChart", {
-    type: 'doughnut',
-    data: data,
-}); 
-
-*/
 
 function statusChange(obj) {
 	
@@ -108,7 +89,7 @@ function statusChange(obj) {
 	Reservation = JSON.stringify(Reservation); 
 	
 	$.ajax({
-		url : "/reservation/modify",
+		url : "${path}/reservation/modify",
 		method : "post",
 		data : Reservation, 
 		contentType : "application/json", 

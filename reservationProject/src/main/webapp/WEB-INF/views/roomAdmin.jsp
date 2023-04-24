@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -18,17 +19,17 @@
 	<div class="header">
 		<jsp:include page="../views/header.jsp" />
 	</div>
-	<form id="insertForm" action="/room/insert" method="post"
+	<form id="insertForm" action="${path}/room/insert" method="post"
 		enctype="multipart/form-data">
 		<div class="body">
 			<div class="mainContainer"
 				style="padding: 5rem 10rem; display: grid; grid-template-columns: 20% 80%;">
 				<div>
 					<div>관리자 메뉴</div>
-					<div onclick="location.href='/admin'">예약 관리</div>
-					<div onclick="location.href='/roomAdmin'">객실 관리</div>
-					<div onclick="location.href='/userAdmin'">회원 관리</div>
-					<div onclick="location.href='/logout'">로그아웃</div>
+					<div onclick="location.href='${path}/admin'">예약 관리</div>
+					<div onclick="location.href='${path}/roomAdmin'">객실 관리</div>
+					<div onclick="location.href='${path}/userAdmin'">회원 관리</div>
+					<div onclick="location.href='${path}/logout'">로그아웃</div>
 				</div>
 
 
@@ -83,7 +84,7 @@
 	<div class="modal-wrap" style="display: none;">
 
 		<div class="modal">
-		 <form id="insertForm" action="/room/modify" method="post" enctype="multipart/form-data">
+		 <form id="insertForm" action="${path}/room/modify" method="post" enctype="multipart/form-data">
 		 <div class="modalClose" onclick="closwModal()">X</div>
 			<div class="subContainer">
 				<h3>- 객실 정보</h3>
@@ -105,7 +106,7 @@
 					<label>가격</label><input class="m_price" type="text" name="price" onkeyup="setNum(this);"></input>
 				</div>
 				<div>
-					<label>객실 이미지</label> <input type="file" multiple="multiple" onchange="readURL(this);"
+					<label>객실 이미지</label> <input type="file"  onchange="readURL(this);"
 						name="files"></input>
 				</div>
 				<div>
@@ -125,7 +126,7 @@ function openModal(obj){
 	 
 	
 	$.ajax({
-		url : "/getRoom/"+roomNo, 
+		url : "${path}/getRoom/"+roomNo, 
 		method : "get", 
 		contentType : "json",
 		success : (result)=> {
@@ -145,7 +146,7 @@ function openModal(obj){
 		$(".m_max").val(max);
 		$(".m_price").val(price);
 		
-		$(".roomImg")[0].innerHTML = "<img id='preview' src='/getFile/"+file+ "' width='300' height='187'>"; 
+		$(".roomImg")[0].innerHTML = "<img id='preview' src='${path}/getFile/"+file+ "' width='300' height='187'>"; 
 
 			}
 		}

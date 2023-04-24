@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -149,7 +150,7 @@
 			console.log(data);
 
 			$.ajax({
-				url : "/login",
+				url : "${path}/login",
 				method : "post",
 				dataType : "json",
 				data : data,
@@ -159,7 +160,7 @@
 					console.log(result);
 					if (result.result == "ok") {
 						console.log("성공");
-						location.href = "/";
+						location.href = "${path}/";
 					} else {
 						alert("아이디/비밀번호가 틀렸습니다 ");
 					}
@@ -204,7 +205,7 @@
 				 $(".newid").val("");
 			 }else {
 				 $.ajax({
-				 url : "/user/idDuplicateCheck", 
+				 url : "${path}/user/idDuplicateCheck", 
 				 method : "post",
 				 data : id, 
 				 dataType : "json",
@@ -266,14 +267,7 @@
 			 
 			if($(".idCheck").val() == "false"){ 
 				 alert("아이디 중복 확인을 하세요");
-			}else if (!reg.test($(".newPw").val())) {
-					 alert("비밀번호는 최소 8 자, 하나 이상의 문자와 하나의 숫자를 입력하세요");
-					 $(".newPw").val("");
-					 $(".reCheckPw").val("");
-					 $(".pwAlert")[0].innerHTML != "false";
-					 
-				 
-			 } else if($(".pwAlert")[0].innerHTML != "" || $(".newPw").val() == "" || $(".reCheckPw").val() == "" ){
+			} else if($(".pwAlert")[0].innerHTML != "" || $(".newPw").val() == "" || $(".reCheckPw").val() == "" ){
 				 alert("비밀번호를 확인하세요");
 				 
 			 }  else if($(".name").val() == ""){
@@ -311,7 +305,7 @@
 			 data = JSON.stringify(data); 
 			 
 			 $.ajax({
-				 url : "/user/doJoin", 
+				 url : "${path}/user/doJoin", 
 				 method : "post" ,
 				 data : data, 
 				 dataType : "json",
@@ -319,7 +313,7 @@
 				 success : (result) => {
 					 if(result.result == "ok") {
 						 alert("회원 가입 성공");
-						 location.href = "/";
+						 location.href = "${path}/";
 					 }else {
 						 alert("회원가입 실패 ");
 					 }

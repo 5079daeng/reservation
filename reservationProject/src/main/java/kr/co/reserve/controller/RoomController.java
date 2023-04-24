@@ -82,8 +82,8 @@ public class RoomController {
 		Attached file = attahchedservice.getFile(fileNo);
 		String fileName = file.getCodeTitle();
 		// 업로드된 파일의 경로
-	
-		String path = "C:\\Users\\bdahm\\Desktop\\stswork\\files\\";
+		 String path = "/var/lib/tomcat9/webapps/files/";
+		//String path = "C:\\Users\\bdahm\\Desktop\\stswork\\files\\";
 
 		Resource resource = new FileSystemResource(path + fileName);
 

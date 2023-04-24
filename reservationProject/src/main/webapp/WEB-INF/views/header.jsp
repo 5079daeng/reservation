@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-prefix="c" %>
+prefix="c" %><c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -25,12 +25,12 @@ prefix="c" %>
 
   <body>
     <div class="headerBtns">
-      <div style="grid-column : span 3" ><button onclick="location.href='/map'">호텔 위치</button></div>
+      <div style="grid-column : span 3" ><button onclick="location.href='${path}/map'">호텔 위치</button></div>
       <div>
-        <img height="100px" src="/resources/static/image/logo.png" onclick="location.href='/'" />
+        <img height="100px" src="${path}/resources/static/image/logo.png" onclick="location.href='${path}/'" />
       </div>
      
-      <div style="grid-column : span 2"><button onclick="location.href='/board?page=1'">고객문의</button></div>
+      <div style="grid-column : span 2"><button onclick="location.href='${path}/board?page=1'">고객문의</button></div>
       <div>
       
       <c:choose>
@@ -43,10 +43,10 @@ prefix="c" %>
       <c:when test="${not empty User }">
         	<c:choose>
         	<c:when test="${User.id eq 'master'}">
-      		<button onclick="location.href='/admin'">관리자 메뉴</button>
+      		<button onclick="location.href='${path}/admin'">관리자 메뉴</button>
       		</c:when>
       		<c:otherwise>
-      		<button onclick="location.href='/mypage/memberInfo'">마이페이지</button>
+      		<button onclick="location.href='${path}/mypage/memberInfo'">마이페이지</button>
       		</c:otherwise>
       		</c:choose>
       </c:when> 
@@ -60,7 +60,7 @@ prefix="c" %>
   <script>
    
     function goLoginPage() {
-      location.href = "/login";
+      location.href = "${path}/login";
     }
   </script>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -25,10 +26,10 @@
 		style="padding: 5rem 10rem; display: grid; grid-template-columns: 20% 80%;">
 		<div>
 			<div>관리자 메뉴</div>
-			<div onclick="location.href='/admin'">예약 관리</div>
-			<div onclick="location.href='/roomAdmin'">객실 관리</div>
-			<div onclick="location.href='/userAdmin'">회원 관리</div>
-			<div onclick="location.href='/logout'">로그아웃</div>
+			<div onclick="location.href='${path}/admin'">예약 관리</div>
+			<div onclick="location.href='${path}/roomAdmin'">객실 관리</div>
+			<div onclick="location.href='${path}/userAdmin'">회원 관리</div>
+			<div onclick="location.href='${path}/logout'">로그아웃</div>
 		</div>
 		<div class="subContainer">
 			<h3>회원 관리</h3>
