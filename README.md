@@ -177,3 +177,22 @@ BCryptPasswordEncoder를 사용하여 비밀번호를 암호화 함
 
 
 ![image](https://user-images.githubusercontent.com/94948667/231437975-67d037a2-7d22-49b5-9181-0ab886bdb4fc.png)
+
+
+<h1> AWS EC2 인스턴스 생성하여 우분투 서버에 배포 ~ing</h1>
+
+* chown invalid user tomcat9:tomcat9 에러 
+
+- tomcat9라는 사용자가 없다는 오류로
+
+
+cat /etc/passwd | grep tomcat9 
+
+
+
+위와 같은 명령어 tomcat9 사용자가 있는지 조회해보고 없으면 아래의 명령어로 생성
+
+
+
+sudo useradd -r -m -U -d /usr/share/tomcat9 -s/bin/false tomcat9 
+
