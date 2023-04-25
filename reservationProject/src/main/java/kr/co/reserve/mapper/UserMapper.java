@@ -24,8 +24,8 @@ public interface UserMapper {
 	@Select("select pw from pinestay.user where id = #{id}")
 	public String getPW(@Param("id") String id);
     
-	@Update("Update pinestay.user  set pw =#{user.pw}, email = #{user.email}, cellphone = #{user.cellphone}, address = #{user.address} where memberNo =#{user.no} ")
-	public int modifyInfo(@Param("user")User user);
+	@Update("Update pinestay.user  set pw =#{user.pw}, email = #{user.email}, cellphone = #{user.cellphone}, address = #{user.address} where userNo = #{user.userNo} ")
+	public int modifyInfo(@Param("user") User user);
 
 	 
 	@Select("Select * from pinestay.user ")

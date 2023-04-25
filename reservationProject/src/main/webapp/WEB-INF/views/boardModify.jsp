@@ -99,7 +99,7 @@
 	  let cate , title, content ; 
 	  
 	  if($(".cate").val() == "" || $(".title")[1].value == "" || $(".content").val() == "") {
-		  alert("카테고리  ,  제목  , 내용 을 설정하세요 "); 
+		  alert("제목  , 내용 을 설정하세요 "); 
 	  } else {
 		  
 		  

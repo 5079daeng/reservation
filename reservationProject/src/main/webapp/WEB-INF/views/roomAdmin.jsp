@@ -84,7 +84,7 @@
 	<div class="modal-wrap" style="display: none;">
 
 		<div class="modal">
-		 <form id="insertForm" action="${path}/room/modify" method="post" enctype="multipart/form-data">
+		 <form id="insertForm" action="${path}/room/modify" method="post" enctype="multipart/form-data" onsubmit="checkForm(event)">
 		 <div class="modalClose" onclick="closwModal()">X</div>
 			<div class="subContainer">
 				<h3>- 객실 정보</h3>
@@ -162,16 +162,29 @@ function closwModal(){
 	
 } 
 
-
 function setNum(obj) {
     let value = obj.value;
     value = value.replace(/[^0-9.]/g, "");
     obj.value = value;
 } 
 
+function checkForm(e) {
+	  // 이벤트 기본 동작을 막음 (폼 제출 방지)
+	  e.preventDefault();
+	  // 인원과 가격이 비어있는지 확인 
+	let max = $(".m_max").val(); 
+	let price =  $(".m_price").val(); 
+	  if (!max || !price) {
+	    alert('값을 모두 입력해주세요.');
+	    return;
+	  }
+	  
+	  // 값이 비어있지 않으면 submit 하기 
+	  document.getElementById('insertForm').submit();
+	}
 
 
-
+// 미리보기 관련 함수 
 function readURL(input) {
 	  if (input.files && input.files[0]) {
 	    var reader = new FileReader();

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -29,7 +29,8 @@
 		style="padding: 5rem 10rem; display: grid; grid-template-columns: 20% 70%;">
 		<div>
 			<div>마이페이지</div>
-			<div onclick="location.href='${path}/mypage/memberInfo'">회원가입 정보</div>
+			<div onclick="location.href='${path}/mypage/memberInfo'">회원가입
+				정보</div>
 			<div onclick="location.href='${path}/mypage/reservationInfo'">예약조회</div>
 		</div>
 		<div class="mypageContainer">
@@ -77,8 +78,8 @@
 						<tr>
 							<th>이메일 주소</th>
 							<td><input id="emailFirst" name="emailFirst" type="text"
-								value="${fn:split(User.email,'@')[0]}" /> <select
-								name="emailLast">
+								value="${fn:split(User.email,'@')[0]}"
+								onkeyup="checkEmail(event)" /> <select name="emailLast">
 									<option value="@naver.com"
 										<c:if test="${fn:split(User.email,'@')[1] eq '@naver.com' }">selected</c:if>>@naver.com</option>
 									<option value="@hanmail.net"
@@ -91,13 +92,11 @@
 							<th>휴대전화번호</th>
 							<td><input id="cellphonFirst" name="cellphonFirst"
 								value="${fn:split(User.cellphone,'-')[0]}" type="text"
-								 style="width: 30%;" />-<input
-								id="cellphoneMiddle" name="cellphoneMiddle" type="text"
-								 style="width: 30%;"
-								value="${fn:split(User.cellphone,'-')[1]}" />- <input
+								style="width: 30%;" onkeyup="checkNum(event)" />-<input id="cellphoneMiddle"
+								name="cellphoneMiddle" type="text" style="width: 30%;"
+								value="${fn:split(User.cellphone,'-')[1]}"  onkeyup="checkNum(event)" />- <input
 								id="cellphonLast" name="cellphonLast" type="text"
-								 style="width: 30%;"
-								value="${fn:split(User.cellphone,'-')[2]}" /></td>
+								style="width: 30%;" value="${fn:split(User.cellphone,'-')[2]}"  onkeyup="checkNum(event)"  /></td>
 						</tr>
 					</tbody>
 				</table>
@@ -112,6 +111,7 @@
 
 
 	<script>
+	// 다음 주소 api 
 		function daumPostcode() {
 			new daum.Postcode(
 					{
@@ -126,20 +126,33 @@
 						}
 					}).open();
 		}
-
+  // 비밀번호 확인 일치하는지 확인하는 함수 
 		function checkPw() {
 			if ($(".newpw").val() != $(".reCheckPw").val()) {
 				$(".pwAlert").html("비밀번호가 일치하지 않습니다");
 			} else if ($(".newpw").val() == $(".reCheckPw").val()) {
 				$(".pwAlert").html("");
 			}
-		}
+		} 
+		
+  // 이메일에 영어만 입력하게 하는 키업이벤트 함수 
+ 		 function checkEmail(e) {
+ 		 let inputValue = e.target.value.replace(/[^a-z0-9]/g, '');
+ 		 e.target.value = inputValue;
+		} 
+  
+  		function checkNum(e) {
+		 let inputValue = e.target.value.replace(/\D/g, '');
+		  e.target.value = inputValue;
+		
+ 		 }
+		
 
 		function doModify() {
 			
-			let no, id, created, pw, address, email, cellphone, name = null; 
+			let userNo, id, created, pw, address, email, cellphone, name = null; 
 			
-		   no = ${User.userNo};
+		   userNo = ${User.userNo};
 		   id = "${User.id}";
 		   name = "${User.name}";
 		   created = "${User.created}";
@@ -155,13 +168,13 @@
 				 alert("이메일을 입력하세요"); 
 			 } else {
 				 
-			 pw =$(".newpw").val();
+			 pw = $(".newpw").val();
 			 address = $("#postcode").val() +"/"+ $("#roadAddress").val() +"/"+ $("#jibunAddress").val();
 			 cellphone = $("#cellphonFirst").val() + "-" + $("#cellphoneMiddle").val() +"-"+ $("#cellphonLast").val(); 
 			 email = $("#emailFirst").val()  + $("#emailFirst").next().val();
 			
 			 let User = { 
-					 no : no , 
+					 userNo : userNo , 
 					 id : id , 
 					 name : name,
 					 pw : pw , 
@@ -193,7 +206,7 @@
 
 		}
 	</script>
-<script
+	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </body>

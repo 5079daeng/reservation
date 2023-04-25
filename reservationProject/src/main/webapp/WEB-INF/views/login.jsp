@@ -105,7 +105,7 @@
 						</tr>
 						<tr>
 							<th>이메일 주소</th>
-							<td><input id="emailFirst" name="emailFirst" type="text" />
+							<td><input id="emailFirst" name="emailFirst" type="text" onkeyup="checkEmail(event)"/>
 								<select name="emailLast">
 									<option value="@naver.com">@naver.com</option>
 									<option value="@hanmail.net">@hanmail.net</option>
@@ -115,11 +115,11 @@
 						<tr>
 							<th>휴대전화번호</th>
 							<td><input id="cellphonFirst" name="cellphonFirst"
-								type="text" onkeyup="checkNum(this)" style="width: 30%;" />-<input
+								type="text" onkeyup="checkNum(this)" style="width: 30%;" onkeyup="checkNum(event)"/>-<input
 								id="cellphoneMiddle" name="cellphoneMiddle" type="text"
-								onkeyup="checkNum(this)" style="width: 30%;" />- <input
+								onkeyup="checkNum(this)" style="width: 30%;"  onkeyup="checkNum(event)" />- <input
 								id="cellphonLast" name="cellphonLast" type="text"
-								onkeyup="checkNum(this)" style="width: 30%;" /></td>
+								onkeyup="checkNum(this)" style="width: 30%;"  onkeyup="checkNum(event)"/></td>
 						</tr>
 					</tbody>
 				</table>
@@ -135,6 +135,29 @@
 		<jsp:include page="../views/footer.jsp" /></div>
 
 	<script>
+	
+	 function showEachDiv(obj){
+		 if(obj.id == "loginBtn") {
+			 $(obj).parent().css("background-color","rgb(150, 116, 36)");
+			 $(obj).parent().css("color","white");
+			 $(obj).parent().next().css("background-color","rgb(254, 251, 238)");
+			 $(obj).parent().next().css("color","black");
+			 $(".loginDiv").show();
+			 $(".joinDiv").hide();
+		 } else {
+			 $(obj).parent().css("background-color","rgb(150, 116, 36)");
+			 $(obj).parent().css("color","white");
+			 $(obj).parent().prev().css("background-color","rgb(254, 251, 238)");
+			 $(obj).parent().prev().css("color","black");
+			 $(".loginDiv").hide();
+			 $(".joinDiv").show();
+		 }
+		 
+	 }
+	
+	
+	
+	
 		function doLogin() {
 			let id, pw;
 			id = $(".id").val();
@@ -146,8 +169,6 @@
 			}
 
 			data = JSON.stringify(data);
-
-			console.log(data);
 
 			$.ajax({
 				url : "${path}/login",
@@ -228,36 +249,24 @@
 			 $(obj).next().next().val("false"); 
 		 }
 		 
-		 function showEachDiv(obj){
-			 if(obj.id == "loginBtn") {
-				 $(obj).parent().css("background-color","rgb(150, 116, 36)");
-				 $(obj).parent().css("color","white");
-				 $(obj).parent().next().css("background-color","rgb(254, 251, 238)");
-				 $(obj).parent().next().css("color","black");
-				 $(".loginDiv").show();
-				 $(".joinDiv").hide();
-			 } else {
-				 $(obj).parent().css("background-color","rgb(150, 116, 36)");
-				 $(obj).parent().css("color","white");
-				 $(obj).parent().prev().css("background-color","rgb(254, 251, 238)");
-				 $(obj).parent().prev().css("color","black");
-				 $(".loginDiv").hide();
-				 $(".joinDiv").show();
-			 }
-			 
-		 }
+		
 		 
 		 
-		 function checkNum(obj) {
-			 let reg = /\d/;  
-			 let result; 
-			 
-			 result = reg.test(obj.value);
-			 if(result === false || obj.value.length > 4  ) {
-				obj.value = obj.value.substring(0, obj.value.length -1); 
-			 }
+		 
+		 function checkEmail(e) {
+	 		 let inputValue = e.target.value.replace(/[^a-z0-9]/g, '');
+	 		 e.target.value = inputValue;
+			} 
+	  
+	  		function checkNum(e) {
+			 let inputValue = e.target.value.replace(/\D/g, '');
+			  e.target.value = inputValue;
 			
-		 } 
+	 		 }
+		 
+		 
+		 
+		
 		 
 		 function doJoin() {
 			 let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mysql.cj.Session;
 
 import kr.co.reserve.domain.User;
 import kr.co.reserve.service.UserService;
@@ -99,15 +102,19 @@ public class ApiLoginController {
 	
 	@RequestMapping(value = "/user/modify", method = RequestMethod.POST)
 	@ResponseBody
-	public String modifyInfo(@RequestBody User user) {
-		String result = null, pw = null; 
+	public String modifyInfo(@RequestBody User user,HttpServletRequest req) {
+		String result = null, pw = null, id = null; 
 		int count = 0;
+		HttpSession session = req.getSession();
 		// 비밀번호 암호화
+	    id =user.getId();
 		pw = encoder.encode(user.getPw());
 		user.setPw(pw);
-
+		
 		count = userService.modifyInfo(user);
-		if (count > 0) {
+		
+		if (count > 0) { 
+			session.setAttribute("User", userService.getUser(id));
 			result = "{\"result\": \"ok\"}";
 		} else {
 			result = "{\"result\": \"failure\"}";

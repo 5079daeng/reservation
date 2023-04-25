@@ -62,33 +62,4 @@
 </body>
 
 
-<script>
-
-let data = {
-	    datasets: [{
-	        data: [${roomList.size()} ,${total - roomList.size()}],
-	        backgroundColor : [ '#9DCEFF','#f3350f' ]
-	    }],
-
-	    labels: [
-	        '예약',
-	        '미예약',
-	    ]
-	};
-
-
-new Chart("myChart", {
-    type: 'doughnut',
-    data: data,
-});
-
-
-</script>
-
-
-
-
-
-
-
 </html>

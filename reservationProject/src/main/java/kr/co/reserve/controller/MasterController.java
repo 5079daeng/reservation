@@ -76,10 +76,7 @@ public class MasterController {
 		}
 
 		// 서버에서 저장 할 경로
-		
-		 String uploadFolder = "/var/lib/tomcat9/webapps/files/";
-		//String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
-		System.out.println(files);
+		String uploadFolder = "/var/lib/tomcat9/webapps/files/";
 		List<MultipartFile> list = files.getFiles("files");
 		if (list.size() != 0) {
 
@@ -125,8 +122,7 @@ public class MasterController {
 		Attached file = new Attached();
 
 		roomService.update(room);
-		 String uploadFolder = "/var/lib/tomcat9/webapps/files/";
-		//String uploadFolder = "C:\\Users\\bdahm\\Desktop\\stswork\\files";
+		String uploadFolder = "/var/lib/tomcat9/webapps/files/";
 		List<MultipartFile> list = files.getFiles("files");
 		
 		if (list.size() > 0 && list.get(0).getSize() > 0) {
@@ -142,11 +138,10 @@ public class MasterController {
 
 					// 랜덤한 이름으로 저장 (파일명 중복)
 					UUID uuid = UUID.randomUUID();
-					System.out.println(uuid.toString());
 					String[] uuids = uuid.toString().split("-");
 					String uniqueName = uuids[0];
 
-					File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension);
+					File saveFile = new File(uploadFolder + uniqueName + fileExtension);
 					file.setRealTitle(fileRealName);
 					file.setCateNo(roomNo);
 					file.setCodeTitle(uniqueName + fileExtension);
