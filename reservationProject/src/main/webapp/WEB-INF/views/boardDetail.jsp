@@ -27,7 +27,7 @@
 				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board?page=1'">목록으로</button>
 				<c:if test="${User.userNo == board.userNo}">
 				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board/modify/${board.boardNo}'">수정</button>
-				<button class="mainBtn" style="margin:0;" onclick="location.href='${path}/board/delete/${board.boardNo}'">삭제</button></c:if>
+				<button class="mainBtn" style="margin:0;" data-boardNo="${board.boardNo}" onclick="deleteBoard(this)">삭제</button></c:if>
 			</div>
 			<table class="tableTypeA">
 				<tbody>
@@ -151,6 +151,27 @@ function deleteReply(obj){
 	    		location.href = "${path}/board/detail/" + boardNo;
 	    	} else {
 	    		alert("댓글 삭제 오류"); 
+	    	}
+	    	
+	    }
+		
+		})
+	
+} 
+
+
+
+function deleteBoard(obj) {
+	let boardNo = obj.dataset.boardno; 
+	$.ajax({
+		url: "${path}/board/delete/" + boardNo , 
+		method : "delete",
+	    success : (result) => {
+	    	result = JSON.parse(result);
+	    	if(result.result == "ok") {
+	    		location.href = "${path}/board?page=1";
+	    	} else {
+	    		alert("글 삭제 오류"); 
 	    	}
 	    	
 	    }

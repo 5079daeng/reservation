@@ -56,9 +56,10 @@
 								<td>${fn:replace(rsv.checkOutDate,'00:00:00','11:00:00')}</td>
 								<td>${rsv.userCount}</td>
 								<td><c:choose>
+										<c:when test="${rsv.status eq 0}">취소</c:when>
 										<c:when test="${rsv.status eq 1}">예약완료</c:when>
-										<c:when test="${rsv.status eq -1}">예약취소</c:when>
-										<c:when test="${rsv.status eq 0}">이용완료</c:when>
+										<c:when test="${rsv.status eq 2}">체크인</c:when>
+										<c:when test="${rsv.status eq 3}">체크아웃</c:when>
 									</c:choose></td>
 							</tr>
 						</c:forEach>
@@ -123,7 +124,7 @@ function setDetailData(detailData,reserveNo,roomNo,fileList) {
 
 	
 	let html = ""; 
-	html += "<td colspan='3'><div><img src='/getFile/"+fileNo+"' style='width:350px' /></div></td>"
+	html += "<td colspan='3'><div><img src='${path}/getFile/"+fileNo+"' style='width:350px' /></div></td>"
 	html += "<td colspan='1'>인원<div>성인: "+adult +" / 아동: "+child +"</div></td>";
 	html += "<td colspan='1'>조식<div>성인: "+adultBf +"/아동: "+childBf +"</div></td>";
 	html += "<td colspan='1'><div>결제금액: "+price +" </div></td>";

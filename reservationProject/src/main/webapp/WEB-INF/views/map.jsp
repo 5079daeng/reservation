@@ -41,7 +41,7 @@ rel='stylesheet' />
 
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86660c82976bb82cd76c4c0160dd474f"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54706395810a6b39722ceb98f729cb39"></script>
 </body>
 <script>
 // 카카오 Map 관련 Start --------------------------------------------------------------------------------

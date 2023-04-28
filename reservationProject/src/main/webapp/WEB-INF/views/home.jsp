@@ -129,7 +129,7 @@
 				param = "";
 			}
 
-			let url = '/room/list' + param;
+			let url = '${path}/room/list' + param;
 			location.href = url;
 
 		}

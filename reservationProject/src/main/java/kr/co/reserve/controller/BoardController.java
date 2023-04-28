@@ -62,22 +62,33 @@ public class BoardController {
 		return mav;
 	}
 
-	@RequestMapping("/board/delete/{boardNo}")
-	public void delete(HttpServletResponse response, ModelAndView mav, @PathVariable("boardNo") int boardNo)
-			throws IOException {
-		int cnt = 0;
-		cnt = service.delete(boardNo);
-		if (cnt != 0) {
-			response.sendRedirect("/board?page=1");
-		}
-
-	}
-
+	
 	/*
 	 * RestController Start
 	 * -----------------------------------------------------------------------------
 	 * -
 	 */
+	
+	
+	@RequestMapping("/board/delete/{boardNo}")
+	@ResponseBody
+	public String delete(HttpServletResponse response, @PathVariable("boardNo") int boardNo) throws IOException {
+		String result = null; 
+		
+		int cnt = 0;
+		
+		cnt = service.delete(boardNo);
+		
+		if (cnt != 0) {
+			result = "{\"result\":\"ok\"}";
+		} else {
+			result = "{\"result\":\"failure\"}";
+		}
+		return result;
+
+	}
+
+	
 
 	@RequestMapping("/board/insert")
 	@ResponseBody

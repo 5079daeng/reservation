@@ -20,10 +20,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		request.getSession().invalidate();
-		response.sendRedirect("/");
+		
+		return "home";
 	}
 	
 	

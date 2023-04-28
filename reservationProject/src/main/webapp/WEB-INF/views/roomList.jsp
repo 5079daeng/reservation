@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -28,49 +28,50 @@
 		<div class="first_step">
 			<c:forEach var="row" items="${list}">
 				<div>
-					<div class="roomsInfo" style="display:grid;grid-template-columns:20%50%30%">
+					<div class="roomsInfo"
+						style="display: grid; grid-template-columns: 20% 50% 30%">
 						<div>
 							<strong>${row.roomNo}</strong>
 						</div>
 						<div class="prodDetail">
-							<figure onclick="modalOpen()"><img src="${path}/getFile/${row.img[0].fileNo}" style="width: -webkit-fill-available;"></figure>
-							
+							<figure data-fileNo="${row.img[0].fileNo}"
+								onclick="modalOpen(this)">
+								<img src="${path}/getFile/${row.img[0].fileNo}"
+									style="width: -webkit-fill-available;">
+							</figure>
+
 						</div>
 						<div class="btnDiv">
-							<button class="mainBtn" value="${row.roomNo}" onclick="stepUp(this)">예약하기</button>
+							<button class="mainBtn" value="${row.roomNo}"
+								onclick="stepUp(this)">예약하기</button>
 						</div>
 
 					</div>
 				</div>
 			</c:forEach>
-			</div>
-			
-			<div class="modal-wrap" style="display:none;">
+		</div>
+
+		<div class="modal-wrap" style="display: none;">
 			<div class="modal">
-				<div class="popLayer popLayererAccImgView">
+				<div>
 					<div class="modal-header">객실 상세보기</div>
 					<br />
 					<div class="modal-body" id="accView">
-						<div class="slidePhotoBox">
-							<div id="gallery" class="ad-gallery">
-								<div class="ad-image-wrapper">
-									<div class="ad-image"
-										style="width: 866px; height: 374px; top: 0px; left: 0px;">
-										<img
-											src="http://www.shillastay.com/images/contents/accmo/ST/R0000001EBFC_KR.jpg"
-											alt="Standard1" width="866" height="374">
-										<p class="ad-image-description" style="width: 852px;"></p>
+						<div>
+							<div>
+								<div>
+									<div style="width: 866px; height: 374px; top: 0px; left: 0px;">
+										<img class="roomImg" width="866" height="374">
+										<p style="width: 852px;"></p>
 									</div>
 
 								</div>
 							</div>
 							<br />
-							<div class="btmCon"
-								style="display: grid; grid-template-columns: 50% 50%">
+							<div style="display: grid; grid-template-columns: 50% 50%">
 								<div class="leftArea">
 
-									<table summary="In Room,In Hotel,Room Service로 구성된 테이블 입니다."
-										class="tableTypeB tableRoomInfor">
+									<table class="tableTypeB tableRoomInfor">
 										<colgroup>
 											<col width="20%" class="col1">
 											<col width="*" class="col2">
@@ -120,47 +121,19 @@
 								</div>
 								<div class="rightArea tableTypeB ">
 									<div class="HotelInfoBox newMgt">
-										<div class="HotelBoxTop">
-											<div class="conTitle2">
-												<h6 class="tit">Hotel Info.</h6>
-											</div>
-											<div class="introLeft">
-												<p class="tit">체크인/체크아웃 시간</p>
-												<div class="useIntro">
-													<p>- 체크인 : 오후 3시 이후</p>
-													<p>- 체크아웃 : 정오</p>
-												</div>
-											</div>
-
-											<div class="introRight">
-												<p class="tit">Cafe 이용안내</p>
-												<div class="useIntro">
-													<p>- [조식]</p>
-													<p>
-														(주중) 06:30~09:30<br> (주말, 공휴일) 07:00~10:00
-													</p>
-												</div>
-												<div class="useIntro">
-													<p>- [중식]</p>
-													<p>
-														(주중) 11:30~14:00<br> (주말, 공휴일) 12:00~14:30
-													</p>
-												</div>
-												<div class="useIntro">
-													<p>- [라운지 (Bar)]</p>
-													<p>(주중, 주말, 공휴일) 18:00~23:00</p>
-												</div>
-											</div>
-											<div class="introBtm">
-												<p class="tit">예약 변경 및 취소</p>
-												<div class="useIntro">
-													<p>- 숙박예정일 1일전 18시까지는 위약금 없이 취소 가능</p>
-													<p>
-														- 위 기간 이후 취소 또는 변경 시(No Show 포함) <br> · 최초 1박 요금의 10%
-														부과<br>
-													</p>
-												</div>
-											</div>
+										<div class="HotelBoxTop" style="background-color: white;">
+											<ul style="margin-top:0">
+												<li>체크인/체크아웃 시간 <br>- 체크인 : 오후 3시 이후 <br> -
+													체크아웃 : 정오
+												</li>
+												<li>Cafe 이용안내<br>- [조식]<br>(주중) 06:30~09:30<br>
+													(주말, 공휴일) 07:00~10:00 <br>- [중식]<br>(주중)
+													11:30~14:00<br> (주말, 공휴일) 12:00~14:30 <br>
+												</li>
+												<li>- [라운지 (Bar)]<br>(주중, 주말, 공휴일) 18:00~23:00<br></li>
+												<li>예약 변경 및 취소<br>- 숙박예정일 1일전 18시까지는 위약금 없이 취소 가능
+												</li>
+											</ul>
 										</div>
 									</div>
 								</div>
@@ -172,57 +145,56 @@
 					</div>
 				</div>
 			</div>
-			</div>
-			<div id="mask"></div>
-			</div>
+		</div>
+		<div id="mask"></div>
+	</div>
 </body>
 
 
 <script>
-
 	function modalClose() {
 		$(".modal-wrap").css("display", "none");
-		$("body").css("overflow","auto"); // 바디 창 스크롤 활성화
+		$("body").css("overflow", "auto"); // 바디 창 스크롤 활성화
 	}
-	
-	function modalOpen() {
-		
+
+	function modalOpen(obj) {
+		let fileNo = obj.dataset.fileno;
+		$(".roomImg")[0].src = "${path}/getFile/" + fileNo;
 		$(".modal-wrap").css("display", "flex");
-		$("body").css("overflow","hidden"); // 바디 창 스크롤 숨김 처리 
+		$("body").css("overflow", "hidden"); // 바디 창 스크롤 숨김 처리 
 
 	}
-	
-	
+
 	function stepUp(obj) {
-		let checkInDate , checkOutDate, adult, child, max;
-		
-		checkInDate = "${param.checkInDate}"; 
+		let checkInDate, checkOutDate, adult, child, max;
+
+		checkInDate = "${param.checkInDate}";
 		checkOutDate = "${param.checkOutDate}";
 		adult = ${param.adult};
 		child = ${param.child};
-		max = ${param.max}; 
-		roomNo = obj.value; 
-		
-		let reservationData = {}; 
-		
+		max = ${param.max};
+		roomNo = obj.value;
+
+		let reservationData = {};
+
 		reservationData.checkInDate = checkInDate;
 		reservationData.checkOutDate = checkOutDate;
 		reservationData.adult = adult;
-		reservationData.child = child; 
+		reservationData.child = child;
 		reservationData.max = max;
-		reservationData.roomNo = roomNo; 
-		
+		reservationData.roomNo = roomNo;
+
 		let param = "?";
 		let paramFirst = true;
-	
-		for (let x in reservationData) {
+
+		for ( let x in reservationData) {
 			//if (reservationData[x] != null && reservationData[x] != 0) {
-				if (paramFirst) {
-					param = param + x + "=" + reservationData[x];
-					paramFirst = false;
-				} else {
-					param = param + "&" + x + "=" + reservationData[x];
-				}
+			if (paramFirst) {
+				param = param + x + "=" + reservationData[x];
+				paramFirst = false;
+			} else {
+				param = param + "&" + x + "=" + reservationData[x];
+			}
 			//}
 		}
 
@@ -232,12 +204,8 @@
 
 		let url = '${path}/reserve' + param;
 		location.href = url;
-		
-	}
-	
 
-	
-	
+	}
 </script>
 
 
