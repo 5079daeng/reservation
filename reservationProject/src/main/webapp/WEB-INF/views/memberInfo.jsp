@@ -149,7 +149,8 @@
 		
 
 		function doModify() {
-			
+			 let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+				
 			let userNo, id, created, pw, address, email, cellphone, name = null; 
 			
 		   userNo = ${User.userNo};
@@ -160,7 +161,10 @@
 			 
 			 if($(".pwAlert")[0].innerHTML != "" || $(".newPw").val() == "" || $(".reCheckPw").val() == "" ){
 				 alert("비밀번호를 확인하세요");
-			 }  else if($("#postcode").val() == "" ||  $("#roadAddress").val() == "" || $("#jibunAddress").val() == "") {
+			 } else if (!reg.test($(".newPw").val())) {
+				 alert("비밀번호는 8자 이상 16자 이하의 영문자 또는 숫자를 입력하세요");
+				 
+			 } else if($("#postcode").val() == "" ||  $("#roadAddress").val() == "" || $("#jibunAddress").val() == "") {
 			   alert("주소를 입력하세요"); 
 			 } else if($("#cellphonFirst").val() == "" || $("#cellphoneMiddle").val() == "" ||  $("#cellphonLast").val() == "" ) {
 				 alert("핸드폰 번호를 입력하세요");  

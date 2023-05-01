@@ -87,7 +87,7 @@
 			<div class="listDiv">
 				<div
 					style="display: flex; align-items: right; justify-content: right; margin: 10px 0;">
-					<c:if test="${ not empty User }">
+					<c:if test="${ not empty User && User.id ne 'master' }">
 						<button class="mainBtn" style="margin: 0;" onclick="listChange()">문의하기</button>
 					</c:if>
 				</div>

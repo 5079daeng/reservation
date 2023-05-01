@@ -17,10 +17,13 @@
  
     <div class="footer">
     <div><img height="100px"src="${path}/resources/static/image/logo.png"/></div>
-    <div><div><div>기장 파인스테이 01-234-5678 </div><div>해운대 파인스테이 02-246-810</div></div>
-    <div>(주) 호텔파인 부산시 해운대구 센텀로1004 (우: 609988) 대표이사 이파인 사업자등록번호 111-222-2022 통신판매신고번호 222222호 </div>
+    
+    
+    <div><div>파인스테이 051-5555-11998</div>
+    <div>(주) 호텔파인 부산시 영도구 1004 (우: 77778888)  </div>
     <div>Copyright (C) HOTEL PINE CP.,LTD. All Rights Reserved.</div></div>
     </div>
+   
     
   
   </body>

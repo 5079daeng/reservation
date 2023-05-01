@@ -271,15 +271,19 @@
 		 function doJoin() {
 			 let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
 			
+			
 		
 			 let id, pw, address, email, cellphone, name = null; 
 			 
 			if($(".idCheck").val() == "false"){ 
-				 alert("아이디 중복 확인을 하세요");
-			} else if($(".pwAlert")[0].innerHTML != "" || $(".newPw").val() == "" || $(".reCheckPw").val() == "" ){
+				 alert("아이디 중복 확인을 하세요"); 
+			}  else if($(".pwAlert")[0].innerHTML != "" || $(".newPw").val() == "" || $(".reCheckPw").val() == "" ){
 				 alert("비밀번호를 확인하세요");
 				 
-			 }  else if($(".name").val() == ""){
+			 } else if(!reg.test($(".newPw").val())) {
+				 alert("비밀번호는 8자 이상 16자 이하의 영문자 또는 숫자를 입력하세요");
+				 
+			 } else if($(".name").val() == ""){
 				 alert("이름을 입력하세요");
 				 
 			 } else if($("#postcode").val() == "" ||  $("#roadAddress").val() == "" || $("#jibunAddress").val() == "") {
